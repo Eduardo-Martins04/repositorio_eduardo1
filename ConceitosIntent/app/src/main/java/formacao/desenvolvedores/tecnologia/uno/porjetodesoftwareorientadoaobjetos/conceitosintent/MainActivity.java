@@ -19,7 +19,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import formacao.desenvolvedores.tecnologia.uno.porjetodesoftwareorientadoaobjetos.conceitosintent.utils.app.UtilsApp;
+
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = "Main";
     private Button btnPerguntar;
     private TextView tvExibirRespota;
     private TextView tvTitulo;
@@ -89,6 +92,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        UtilsApp utilsApp = new UtilsApp();
+        Log.d(TAG, "Valor convertido de float p/ int: " + utilsApp.convertToInt(5.1987));
+
+        byte b = -27;
+        Log.d(TAG, "Valor convertido de byte p/ int: " + utilsApp.convertToInt(b));
+
+        short s = 2;
+        Log.d(TAG, "Valor convertido de short p/ int: " + utilsApp.convertToInt(s));
+
+        long l = 921221654321432L;
+        Log.d(TAG, "Valor convertido de long p/ int: " + utilsApp.convertToInt(l));
+
+        Log.d(TAG, "Valor convetido tipo abstrato string p/ int: " + utilsApp.convertToInt(this, "1"));
     }
 
 

@@ -52,6 +52,7 @@ public class RespostaActivity extends AppCompatActivity {
                 edtResposta.setText("");
                 tvPergunta.setText("");
             }
+
         });
 
         btnResponder.setOnClickListener(new View.OnClickListener() {
