@@ -10,7 +10,7 @@
         android:id="@+id/tvOpcao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selecione a operação matematica"
+        android:text="Selecione a operação Matemática"
         android:textAlignment="center"
         android:textSize="18sp"
         android:layout_marginTop="16dp"
@@ -25,44 +25,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvOpcao"
-        />
-
-    <TextView
-        android:id="@+id/tvOperacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:hint="Tipo de operação"
-        app:layout_constraintBottom_toBottomOf="@+id/edtNumero1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spiOpcoes" />
+        app:layout_constraintTop_toBottomOf="@+id/tvOpcao" />
+
 
     <EditText
         android:id="@+id/edtNumero1"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:textAlignment="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="valor"
         android:inputType="number"
-        android:hint="Digite um numero"
-        app:layout_constraintStart_toEndOf="@+id/tvOperacao"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spiOpcoes" />
 
     <ImageView
         android:id="@+id/imgOperacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/edtNumero1"
-        app:layout_constraintStart_toStartOf="@+id/edtNumero1"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNumero1"
         app:srcCompat="@drawable/soma" />
 
@@ -70,23 +61,22 @@
         android:id="@+id/edtNumero2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Digite um numero"
-        android:textAlignment="center"
+        android:hint="valor"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@id/edtNumero1"
-        app:layout_constraintStart_toStartOf="@+id/edtNumero1"
-        app:layout_constraintTop_toBottomOf="@+id/imgOperacao"
-        />
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgOperacao" />
 
     <ImageView
         android:id="@+id/imgIgual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/edtNumero2"
-        app:layout_constraintStart_toStartOf="@+id/edtNumero2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNumero2"
         app:srcCompat="@drawable/igual"/>
 
@@ -94,21 +84,23 @@
         android:id="@+id/tvResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         android:hint="Resultado da operação matemática"
-        app:layout_constraintEnd_toEndOf="@+id/btnCalcular"
-        app:layout_constraintStart_toStartOf="@+id/btnCalcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCalcular" />
 
     <Button
         android:id="@+id/btnCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="16dp"
         android:text="Calcular"
-        app:layout_constraintEnd_toEndOf="@+id/edtNumero2"
-        app:layout_constraintStart_toStartOf="@+id/edtNumero2"
-        app:layout_constraintTop_toBottomOf="@+id/edtNumero2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgIgual" />>
 
 
 

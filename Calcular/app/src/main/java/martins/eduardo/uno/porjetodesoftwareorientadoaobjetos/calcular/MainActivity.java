@@ -17,9 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    public static final String DIVISAO = "Dividir";
+    public static final String DIVIDIR = "Dividir";
     public static final String MULTIPLICAR = "Multiplicar";
-    public static final String SOMA = "Somar";
+    public static final String SOMAR = "Somar";
     public static final String SUBTRAIR = "Subtrair";
     private Spinner spiOpcoes;
     private EditText edtNumero1, edtNumero2;
@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         ArrayAdapter<String> adapterOperacoes = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item
-                , getResources().getStringArray(R.array.operacoes_matematica));
+                android.R.layout.simple_spinner_item // aparecer um em baixo do outro
+                , getResources().getStringArray(R.array.operacoes_matematica)); // conteudo que vai aparecer
         adapterOperacoes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spiOpcoes.setAdapter(adapterOperacoes);
@@ -58,16 +58,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
        btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(operacaoSelecionada == DIVISAO){// == "Dividir"
-                    Toast.makeText(MainActivity.this, "DIVISAO", Toast.LENGTH_SHORT).show();
-          
+                if(operacaoSelecionada == DIVIDIR){// == "Dividir"
+
                 }
 
                 else if(operacaoSelecionada == MULTIPLICAR){// == "Multiplicar"
 
                 }
 
-                else if(operacaoSelecionada == SOMA){// == "Somar"
+                else if(operacaoSelecionada == SOMAR){// == "Somar"
+                    
+
 
                 }
 
@@ -81,7 +82,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+        Toast.makeText(MainActivity.this, adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
+
+
+        if(adapterView.getItemAtPosition(i).toString().equals(DIVIDIR)){
+            imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.divisao, getTheme()));
+            imgOperacao.setVisibility(View.VISIBLE);
+
+        } else if (adapterView.getItemAtPosition(i).toString().equals(MULTIPLICAR)){
+            imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.multiplica, getTheme()));
+            imgOperacao.setVisibility(View.VISIBLE);
+
+        } else if(adapterView.getItemAtPosition(i).toString().equals(SOMAR)){
+            imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.soma, getTheme()));
+            imgOperacao.setVisibility(View.VISIBLE);
+
+        } else if(adapterView.getItemAtPosition(i).toString().equals(SUBTRAIR)){
+            imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.subtracao, getTheme()));
+            imgOperacao.setVisibility(View.VISIBLE);
+
+
+        }
+
 
     }
 
