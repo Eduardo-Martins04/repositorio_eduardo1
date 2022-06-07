@@ -52,31 +52,31 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spiOpcoes.setAdapter(adapterOperacoes);
         spiOpcoes.setOnItemSelectedListener(this);//this usada como argumento de metodo
 
-        //PEGA A OPCAO SELECIONADA DO SPINNER
-        String operacaoSelecionada = spiOpcoes.getSelectedItem().toString();
+
 
        btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //PEGA A OPCAO SELECIONADA DO SPINNER
+                String operacaoSelecionada = spiOpcoes.getSelectedItem().toString();
+
                 if(operacaoSelecionada == DIVIDIR){// == "Dividir"
+                    tvResultado.setText("teste");
+
+                } else if(operacaoSelecionada == MULTIPLICAR){// == "Multiplicar"
+
+                } else if(operacaoSelecionada == SOMAR){// == "Somar"
+
+                } else if (operacaoSelecionada == SUBTRAIR){// == "Subtrair"
+
+                } else{
 
                 }
 
-                else if(operacaoSelecionada == MULTIPLICAR){// == "Multiplicar"
-
-                }
-
-                else if(operacaoSelecionada == SOMAR){// == "Somar"
-                    
-
-
-                }
-
-                else if (operacaoSelecionada == SUBTRAIR){// == "Subtrair"
-
-                }
-
+                //tvResultado.setText(operacaoSelecionada);
             }
+
        });
 
     }
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Toast.makeText(MainActivity.this, adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MainActivity.this, adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 
 
         if(adapterView.getItemAtPosition(i).toString().equals(DIVIDIR)){
