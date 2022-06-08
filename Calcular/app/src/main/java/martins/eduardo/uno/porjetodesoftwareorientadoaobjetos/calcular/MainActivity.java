@@ -17,11 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    public static final String DIVIDIR = "Dividir";
+    public static final String DIVIDIR     = "Dividir";
     public static final String MULTIPLICAR = "Multiplicar";
-    public static final String SOMAR = "Somar";
-    public static final String SUBTRAIR = "Subtrair";
-    private int ZERO = 0;
+    public static final String SOMAR       = "Somar";
+    public static final String SUBTRAIR    = "Subtrair";
+    private int ZERO                       = 0;
     private Spinner spiOpcoes;
     private EditText edtNumero1, edtNumero2;
     private ImageView imgOperacao, imgLimpar;
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //PEGA A OPCAO SELECIONADA DO SPINNER
                 String operacaoSelecionada = spiOpcoes.getSelectedItem().toString();
 
-                if(operacaoSelecionada.equals(DIVIDIR)){// == "Dividir"
+                if(operacaoSelecionada.equals(DIVIDIR)){
                     if(validarTermoVazio()){
                         if (verificaDivisao0()){
                             tvResultado.setText(dividir());
@@ -74,14 +74,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         Toast.makeText(MainActivity.this, "Insira 2 numeros para realizar a divisão", Toast.LENGTH_SHORT).show();
                     }
 
-                } else if(operacaoSelecionada.equals(MULTIPLICAR)){// == "Multiplicar"
+                } else if(operacaoSelecionada.equals(MULTIPLICAR)){
                     if(validarTermoVazio()){
                         tvResultado.setText(multiplicar());
                     } else {
                         Toast.makeText(MainActivity.this, "Insira 2 numeros para realizar a multiplicação", Toast.LENGTH_SHORT).show();
                     }
 
-                } else if(operacaoSelecionada.equals(SOMAR)){// == "Somar"
+                } else if(operacaoSelecionada.equals(SOMAR)){
                     if(validarTermoVazio()){
                         tvResultado.setText(somar());
                     } else {
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
 
 
-                } else if (operacaoSelecionada.equals(SUBTRAIR)){// == "Subtrair"
+                } else if (operacaoSelecionada.equals(SUBTRAIR)){
                     if(validarTermoVazio()){
                         tvResultado.setText(subtrair());
                     } else {
@@ -98,8 +98,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 } else{
                     Toast.makeText(MainActivity.this, "Selecione uma operação matematica", Toast.LENGTH_SHORT).show();
                 }
-
-                //tvResultado.setText(operacaoSelecionada);
             }
 
        });
@@ -157,7 +155,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private String dividir() {
-
             int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
             int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
 
@@ -184,11 +181,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             //return String.valueOf(res);
             return "O resultado da soma é " + res;
-
     }
 
     private String subtrair(){
-        if(!edtNumero1.getText().toString().isEmpty() || !edtNumero2.getText().toString().isEmpty()){
             int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
             int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
 
@@ -196,10 +191,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             //return String.valueOf(res);
             return "O resultado da subtração é " + res;
-        } else {
-            Toast.makeText(this, "Informe 2 numeros para realizar a subtração", Toast.LENGTH_SHORT).show();
-            return "";
-        }
 
     }
 
