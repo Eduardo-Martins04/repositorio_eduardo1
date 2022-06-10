@@ -196,8 +196,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else if (adapterView.getItemAtPosition(i).toString().equals(RAIZ_QUADRADA)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.raiz_quadrada, getTheme()));
             imgOperacao.setVisibility(View.VISIBLE);
-            edtNumero2.setVisibility(View.INVISIBLE);
             edtNumero1.setHint("Radicando");
+            verificaExibicao(adapterView.getItemAtPosition(i).toString());
+            edtNumero2.setText("NÃO EDITAVEL");
 
         } else if (adapterView.getItemAtPosition(i).toString().equals(LOGARITMO)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.logaritmo, getTheme()));
@@ -213,7 +214,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } else if (adapterView.getItemAtPosition(i).toString().equals(POTENCIA_10)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.potencia10, getTheme()));
             edtNumero1.setHint("Expoente");
-            edtNumero2.setVisibility(View.INVISIBLE);
+            verificaExibicao(adapterView.getItemAtPosition(i).toString());
+            edtNumero2.setText("NÃO EDITAVEL");
+
         }
 
     }
@@ -223,45 +226,46 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    //FUNÇÕES PARA CALCULAR OPERAÇÕES BASICAS
     private String dividir() {
-            int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
-            int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
+            double n1 = Double.parseDouble(edtNumero1.getText().toString());
+            double n2 = Double.parseDouble(edtNumero2.getText().toString());
 
-            int res = n1 / n2;
+            double res = n1 / n2;
 
             return "O resultado da divisão é " + res;
     }
 
     private String multiplicar() {
-            int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
-            int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
+            double n1 = Double.parseDouble(edtNumero1.getText().toString());
+            double n2 = Double.parseDouble(edtNumero2.getText().toString());
 
-            int res = n1 * n2;
+            double res = n1 * n2;
 
             return "O resultado da multiplicação é " + res;
-
     }
 
     private String somar(){
-            int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
-            int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
+            double n1 = Double.parseDouble(edtNumero1.getText().toString());
+            double n2 = Double.parseDouble(edtNumero2.getText().toString());
 
-            int res = n1 + n2;
+            double res = n1 + n2;
 
             return "O resultado da soma é " + res;
     }
 
     private String subtrair(){
-            int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
-            int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
+            double n1 = Double.parseDouble(edtNumero1.getText().toString());
+            double n2 = Double.parseDouble(edtNumero2.getText().toString());
 
-            int res = n1 - n2;
+            double res = n1 - n2;
 
             //return String.valueOf(res);
             return "O resultado da subtração é " + res;
 
     }
 
+    //FUNÇÕES DE VERIFICAÇÕES DE DADOS
     private boolean validarTermosVazios(){
         if(!edtNumero1.getText().toString().isEmpty()){
             if (!edtNumero2.getText().toString().isEmpty()){
@@ -286,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private boolean verificaDivisao0(){
-        int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
+        Double n2 = Double.parseDouble(edtNumero2.getText().toString());
         if(n2 != ZERO){
             return true;
         } else {
@@ -294,9 +298,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-
+    // FUNÇÕES PARA CALCULAR OPERAÇOES COMPLEXAS
     private String raizQuadrada(){
-        int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
+        double n1 = Double.parseDouble(edtNumero1.getText().toString());
         double res = Math.sqrt(n1);
         String format = String.format("%.2f", res);
 
@@ -304,8 +308,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private String logaritmo(){
-        int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
-        int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
+        double n1 = Double.parseDouble(edtNumero1.getText().toString());
+        double n2 = Double.parseDouble(edtNumero2.getText().toString());
 
         double res = Math.log(n1/n2);
 
@@ -313,7 +317,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private String potencia10(){
-        int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
+        double n1 = Double.parseDouble(edtNumero1.getText().toString());
 
         double res = Math.pow(BASE_DEZ, n1);
 
@@ -321,12 +325,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private String potenciacao(){
-        int n1 = Integer.valueOf(edtNumero1.getText().toString()).intValue();
-        int n2 = Integer.valueOf(edtNumero2.getText().toString()).intValue();
+        double n1 = Double.parseDouble(edtNumero1.getText().toString());
+        double n2 = Double.parseDouble(edtNumero2.getText().toString());
 
         double res = Math.pow(n1, n2);
 
         return "o resultado da potenciação é " + res;
+    }
+
+    private void verificaExibicao(String operacaoSelecionada){
+        if(operacaoSelecionada.equals(RAIZ_QUADRADA) || operacaoSelecionada.equals(POTENCIA_10)){
+            edtNumero2.setKeyListener(null);
+            edtNumero2.setEnabled(false);
+        } else {
+            edtNumero2.getKeyListener();
+            edtNumero2.setEnabled(true);
+
+        }
+
     }
 
 }
