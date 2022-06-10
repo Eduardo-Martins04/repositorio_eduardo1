@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.KeyListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         spiOpcoes.setAdapter(adapterOperacoes);
         spiOpcoes.setOnItemSelectedListener(this);//this usada como argumento de metodo
+
+
 
 
 
@@ -163,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
         //Toast.makeText(MainActivity.this, adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
+        bloquear(false);
 
         if(adapterView.getItemAtPosition(i).toString().equals(DIVIDIR)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.divisao, getTheme()));
@@ -175,9 +179,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.multiplica, getTheme()));
             imgOperacao.setVisibility(View.VISIBLE);
             edtNumero2.setVisibility(View.VISIBLE);
-
             edtNumero1.setHint("Multiplicando");
             edtNumero2.setHint("Multiplicador");
+
 
         } else if (adapterView.getItemAtPosition(i).toString().equals(SOMAR)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.soma, getTheme()));
@@ -186,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             edtNumero1.setHint("Parcela");
             edtNumero2.setHint("Parcela");
 
+
         } else if (adapterView.getItemAtPosition(i).toString().equals(SUBTRAIR)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.subtracao, getTheme()));
             imgOperacao.setVisibility(View.VISIBLE);
@@ -193,17 +198,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             edtNumero1.setHint("Minuendo");
             edtNumero2.setHint("Subtraendo");
 
+
         } else if (adapterView.getItemAtPosition(i).toString().equals(RAIZ_QUADRADA)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.raiz_quadrada, getTheme()));
             imgOperacao.setVisibility(View.VISIBLE);
             edtNumero1.setHint("Radicando");
-            verificaExibicao(adapterView.getItemAtPosition(i).toString());
-            edtNumero2.setText("NÃO EDITAVEL");
+            bloquear(true);
+
 
         } else if (adapterView.getItemAtPosition(i).toString().equals(LOGARITMO)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.logaritmo, getTheme()));
             imgOperacao.setVisibility(View.VISIBLE);
             edtNumero2.setVisibility(View.VISIBLE);
+
 
         } else if (adapterView.getItemAtPosition(i).toString().equals(POTENCIACAO)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.potenciacao, getTheme()));
@@ -211,12 +218,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             edtNumero2.setHint("Expoente");
             edtNumero2.setVisibility(View.VISIBLE);
 
+
         } else if (adapterView.getItemAtPosition(i).toString().equals(POTENCIA_10)){
             imgOperacao.setImageDrawable(getResources().getDrawable(R.drawable.potencia10, getTheme()));
             edtNumero1.setHint("Expoente");
-            verificaExibicao(adapterView.getItemAtPosition(i).toString());
-            edtNumero2.setText("NÃO EDITAVEL");
-
+            bloquear(true);
         }
 
     }
@@ -333,16 +339,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return "o resultado da potenciação é " + res;
     }
 
-    private void verificaExibicao(String operacaoSelecionada){
-        if(operacaoSelecionada.equals(RAIZ_QUADRADA) || operacaoSelecionada.equals(POTENCIA_10)){
-            edtNumero2.setKeyListener(null);
+
+
+    private void bloquear(boolean block){
+        if(block){
+            edtNumero2.setFocusable(false);
+            //edtNumero2.setKeyListener(null);
             edtNumero2.setEnabled(false);
         } else {
-            edtNumero2.getKeyListener();
+            edtNumero2.setFocusable(true);
+            //edtNumero2.getKeyListener();
             edtNumero2.setEnabled(true);
-
         }
-
     }
 
 }
