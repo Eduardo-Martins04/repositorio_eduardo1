@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void bloquear(boolean block){
         if(block){
-            edtNumero2.setFocusable(false);
+            //edtNumero2.setFocusable(false);
             //edtNumero2.setKeyListener(null);
             edtNumero2.setEnabled(false);
         } else {
