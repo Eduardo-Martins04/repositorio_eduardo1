@@ -15,7 +15,7 @@ public abstract class Forma {
 		medida = new double[numMedidas]; // aloca array de medidas
 	}
 
-	// M�todos
+	// Métodos
 	public double getMedida(int i) { // obt�m uma medida
 		if (i < 0 || i >= medida.length) {
 			throw new RuntimeException("Numero invalido de medida.");
@@ -50,6 +50,6 @@ public abstract class Forma {
 		return sb.toString();
 	}
 
-	// m�todo abstrato que determinara �rea
+	// método abstrato que determinara �rea
 	public abstract double area();
 }
