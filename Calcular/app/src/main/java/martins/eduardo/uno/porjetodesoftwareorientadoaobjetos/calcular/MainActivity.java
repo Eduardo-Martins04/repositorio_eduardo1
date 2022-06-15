@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+//teste commit
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     public static final String DIVIDIR       = "Dividir";
     public static final String MULTIPLICAR   = "Multiplicar";
