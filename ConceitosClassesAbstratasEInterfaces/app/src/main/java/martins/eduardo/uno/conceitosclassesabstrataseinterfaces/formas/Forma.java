@@ -9,7 +9,7 @@ public abstract class Forma {
     }
 
     // Métodos
-    public double getMedida(int i) { // obt�m uma medida
+    public double getMedida(int i) { // obtem uma medida
         if (i < 0 || i >= medida.length) {
             throw new RuntimeException("Numero invalido de medida.");
         }
@@ -31,7 +31,7 @@ public abstract class Forma {
     }
 
     @Override
-    public String toString() { // representa��o textual
+    public String toString() { // representacao textual
         StringBuffer sb = new StringBuffer(getClass().getName());
         sb.append("[medidas:");
         for (int i = 0; i < medida.length - 1; i++) {
@@ -43,6 +43,6 @@ public abstract class Forma {
         return sb.toString();
     }
 
-    // método abstrato que determinara �rea
+    // método abstrato que determinara area
     public abstract double area();
 }

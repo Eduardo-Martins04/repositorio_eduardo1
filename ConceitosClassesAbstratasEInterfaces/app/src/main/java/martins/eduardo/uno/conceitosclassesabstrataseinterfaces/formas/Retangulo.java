@@ -1,6 +1,5 @@
 package martins.eduardo.uno.conceitosclassesabstrataseinterfaces.formas;
 
-import martins.eduardo.uno.conceitosclassesabstrataseinterfaces.formas.Forma;
 
 public class Retangulo extends Forma {
     public Retangulo(double altura, double largura) {
