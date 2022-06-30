@@ -13,16 +13,23 @@ public class RetanguloTest {
 
     @Test
     public void calcularAreaDoRetangulo(){
-        double area_Base5Altura2 = 10;
+        double area_BaseXAltura = 10;
         int PRECISAO_4_CASAS_DECIMAIS = 4;
 
-        retangulo.setMedidas(0, 3);
-        retangulo.setMedidas(1, 8);
+        retangulo.setMedidas(0, 5);
+        retangulo.setMedidas(1, 2);
 
+        //double baser = retangulo.getMedidas(0);
+        //double alturar = retangulo.getMedidas(1);
         double area = retangulo.getMedidas(0) * retangulo.getMedidas(1);
 
-        assertEquals("A area de uma de um retangulo de base 5 e altura 2 é: 10", area_Base5Altura2,
-                area, PRECISAO_4_CASAS_DECIMAIS);
+        
+
+        /*assertEquals("A area de uma de um retangulo: " + area_BaseXAltura, area_BaseXAltura,
+                area, PRECISAO_4_CASAS_DECIMAIS);*/
+        Double calculoPapel = new Double(area_BaseXAltura);
+        boolean x = calculoPapel.equals(new Double(area));
+        assertTrue(x);
 
     }
 
