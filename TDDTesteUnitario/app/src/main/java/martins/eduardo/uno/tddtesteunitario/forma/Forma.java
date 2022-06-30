@@ -9,7 +9,7 @@ public abstract class Forma {
         numeroDeMedidas = new double[numMedidas];
     }
 
-    public double getMedida(int posicao){
+    public double getMedidas(int posicao){
 
         if(posicao >= 0 && posicao < TAMANHO_MAXIMO){
             return numeroDeMedidas[posicao];

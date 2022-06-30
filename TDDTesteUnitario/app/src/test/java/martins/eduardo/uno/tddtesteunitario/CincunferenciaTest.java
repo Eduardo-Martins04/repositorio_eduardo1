@@ -1,12 +1,10 @@
 package martins.eduardo.uno.tddtesteunitario;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 import static java.lang.Math.PI;
-
-import org.junit.Assert;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import java.lang.Math;
 
 import martins.eduardo.uno.tddtesteunitario.forma.Circunferencia;
@@ -27,7 +25,7 @@ public class CincunferenciaTest {
         circunferencia.setMedidas(0, 3);
 
         //posicao 0 pq a circunferencia precisa de apenas 1 informação para calcular a area
-        raio = circunferencia.getMedida(0);
+        raio = circunferencia.getMedidas(0);
 
         validar = raio > 0;
         assertTrue(validar);
@@ -52,7 +50,7 @@ public class CincunferenciaTest {
         circunferencia.setMedidas(0, 5);
 
         //fazendo o calculo do raio
-        double area = PI * Math.pow(circunferencia.getMedida(POSICAO_ZERO), EXPOENTE_2);
+        double area = PI * Math.pow(circunferencia.getMedidas(POSICAO_ZERO), EXPOENTE_2);
 
 
         /*assertEquals("A area de uma circunferencia de raio 3 é 28,2743", area_raio3, area,
