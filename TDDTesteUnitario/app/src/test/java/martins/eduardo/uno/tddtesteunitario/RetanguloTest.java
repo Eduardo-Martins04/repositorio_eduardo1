@@ -10,12 +10,13 @@ import martins.eduardo.uno.tddtesteunitario.forma.Retangulo;
 public class RetanguloTest {
 
     private static Retangulo retangulo = new Retangulo();
+    double DIFERENCA_ACEITAVEL = 0.0001;
 
 
     @Test
     public void calcularAreaDoRetangulo(){
         double area_BaseXAltura = 10;
-        double DIFERENCA_ACEITAVEL = 0.0001;
+
 
         retangulo.setMedidas(0, 5);
         retangulo.setMedidas(1, 2);
@@ -34,13 +35,12 @@ public class RetanguloTest {
 
     @Test
     public void calcularPerimetroRetangulo(){
-        double perimetro_BaseXAlturaY = 20;
-        double DIFERENCA_ACEITAVEL = 0.0001;
+        double perimetro_BaseXAlturaY = 14;
 
         retangulo.setMedidas(0, 2);
         retangulo.setMedidas(1, 5);
 
-        double perimetro = retangulo.area() * 2;
+        double perimetro = 2 * (retangulo.getMedidas(0) + retangulo.getMedidas(1));
 
         assertEquals("O perimetro de um retangulo de base 5 e altura 2 é: 20", perimetro_BaseXAlturaY,
                 perimetro, DIFERENCA_ACEITAVEL);
