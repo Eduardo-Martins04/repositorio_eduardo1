@@ -10,7 +10,7 @@ public class Circunferencia extends Forma{
     }*/
 
     public Circunferencia() {
-        super(TAMANHO_ARRAY_INFO_CALCULO_AREA);
+        super(TAMANHO_ARRAY_INFO_CALCULO_AREA); // CHAMANDO A CLASSE PAI/FORMA
     }
 
     public int getTamanhoArrayInfoCalculoArea(){

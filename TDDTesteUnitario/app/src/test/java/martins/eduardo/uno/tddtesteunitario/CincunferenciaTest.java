@@ -40,7 +40,7 @@ public class CincunferenciaTest {
     @Test
     public void deveriaCalcularAreaDaCircunferencia(){
         //O calculo da area de uma circunferencia é dada pela formula: A = PI * raio ao quadrado
-        int PRECISAO_4_CASAS_DECIMAIS = 4;
+        double DIFERENCA_ACEITAVEL                  = 0.0001;
 
         //calculos feitos no papel e canta
         double area_raio3             = 28.2743;
@@ -58,7 +58,7 @@ public class CincunferenciaTest {
 
         //verificando se o calculo do raio do computador é igual o nosso da caneta
         assertEquals("A area de uma circunferencia de raio 5 é 78.5398", area_raio5, area,
-                PRECISAO_4_CASAS_DECIMAIS);
+                DIFERENCA_ACEITAVEL);
     }
 
 

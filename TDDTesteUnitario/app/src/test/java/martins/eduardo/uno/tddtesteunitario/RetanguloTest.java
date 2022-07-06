@@ -9,8 +9,11 @@ import martins.eduardo.uno.tddtesteunitario.forma.Retangulo;
 
 public class RetanguloTest {
 
-    private static Retangulo retangulo = new Retangulo();
-    double DIFERENCA_ACEITAVEL = 0.0001;
+    private static Retangulo retangulo          = new Retangulo();
+    double DIFERENCA_ACEITAVEL                  = 0.0001;
+    public static final int POSICAO_ZERO_BASE   = 0;
+    public static final int POSICAO_UM_ALTURA   = 1;
+
 
 
     @Test
@@ -18,12 +21,12 @@ public class RetanguloTest {
         double area_BaseXAltura = 10;
 
 
-        retangulo.setMedidas(0, 5);
-        retangulo.setMedidas(1, 2);
+        retangulo.setMedidas(POSICAO_ZERO_BASE, 5);
+        retangulo.setMedidas(POSICAO_UM_ALTURA, 2);
 
         //double baser = retangulo.getMedidas(0);
         //double alturar = retangulo.getMedidas(1);
-        double area = retangulo.getMedidas(0) * retangulo.getMedidas(1);
+        double area = retangulo.getMedidas(POSICAO_ZERO_BASE) * retangulo.getMedidas(POSICAO_UM_ALTURA);
 
         assertEquals("A area de um retangulo: " + area_BaseXAltura, area_BaseXAltura,
                 area, DIFERENCA_ACEITAVEL);
@@ -37,10 +40,10 @@ public class RetanguloTest {
     public void calcularPerimetroRetangulo(){
         double perimetro_BaseXAlturaY = 14;
 
-        retangulo.setMedidas(0, 2);
-        retangulo.setMedidas(1, 5);
+        retangulo.setMedidas(POSICAO_ZERO_BASE, 2);
+        retangulo.setMedidas(POSICAO_UM_ALTURA, 5);
 
-        double perimetro = 2 * (retangulo.getMedidas(0) + retangulo.getMedidas(1));
+        double perimetro = 2 * (retangulo.getMedidas(POSICAO_ZERO_BASE) + retangulo.getMedidas(POSICAO_UM_ALTURA));
 
         assertEquals("O perimetro de um retangulo de base 5 e altura 2 é: 20", perimetro_BaseXAlturaY,
                 perimetro, DIFERENCA_ACEITAVEL);
