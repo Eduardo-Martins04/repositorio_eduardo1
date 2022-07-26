@@ -3,7 +3,7 @@ package martins.eduardo.uno.morintegracaocomjava.database_app.tabelas;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-
+//ESSA CLASSE VIROU UM TABELA ATRAVES DO ENTITY
 @Entity(tableName = "tbl_aluno"
     ,indices = {@Index(value = "id", unique = true)})
 
