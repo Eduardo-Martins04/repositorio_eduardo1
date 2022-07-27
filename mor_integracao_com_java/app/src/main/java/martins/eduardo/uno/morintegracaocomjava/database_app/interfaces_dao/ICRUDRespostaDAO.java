@@ -33,7 +33,7 @@ public interface ICRUDRespostaDAO {
 
     @Transaction
     @Delete(entity = Resposta.class)
-    void deleteRespota(Resposta tblResposta);
+    void deleteResposta(Resposta tblResposta);
 
     @Transaction
     @Query("DELETE FROM tbl_resposta WHERE id = :id")

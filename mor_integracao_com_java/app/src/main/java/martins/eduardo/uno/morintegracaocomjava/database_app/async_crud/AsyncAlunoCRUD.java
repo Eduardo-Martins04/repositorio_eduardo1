@@ -22,11 +22,17 @@ public class AsyncAlunoCRUD extends AsyncTask<Aluno, Integer, List<Aluno>> {
     private WeakReference<IAlunoDbCallback> dbCallBack;
 
     public AsyncAlunoCRUD(UtilsApp.DataBaseCrudOperations dbOperations
-    , Context context
-    , IAlunoDbCallback callback){
-        this.dbOperations = dbOperations;
+            , Context context
+            , IAlunoDbCallback callBack){
+        this.dbOperations              = dbOperations;
         this.contextActivityOrFragment = context;
-        dbCallBack = new WeakReference(callback);
+        dbCallBack                     = new WeakReference(callBack);
+    }
+
+    public AsyncAlunoCRUD(Context context){
+        this.dbOperations              = UtilsApp.DataBaseCrudOperations.CREATE;
+        this.contextActivityOrFragment = context;
+        dbCallBack                     = null;
     }
 
 
