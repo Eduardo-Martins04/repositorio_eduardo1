@@ -21,7 +21,7 @@ public interface ICRUDProvaDAO {
     void insertProva(Prova prova);
 
     @Query("SELECT * FROM tbl_prova WHERE id = :id")
-    void getEspecifProvaById(int id);
+    Prova getEspecifProvaById(int id);
 
     @Query("SELECT * FROM tbl_prova")
     List<Prova> getAllProvas();

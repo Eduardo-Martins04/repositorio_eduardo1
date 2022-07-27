@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
@@ -18,9 +19,19 @@ import martins.eduardo.uno.morintegracaocomjava.database_app.interfaces_dao.ICRU
 import martins.eduardo.uno.morintegracaocomjava.database_app.interfaces_dao.ICRUDPerguntaDAO;
 import martins.eduardo.uno.morintegracaocomjava.database_app.interfaces_dao.ICRUDProvaDAO;
 import martins.eduardo.uno.morintegracaocomjava.database_app.interfaces_dao.ICRUDRespostaDAO;
+import martins.eduardo.uno.morintegracaocomjava.database_app.tabelas.Aluno;
+import martins.eduardo.uno.morintegracaocomjava.database_app.tabelas.AlunoProva;
+import martins.eduardo.uno.morintegracaocomjava.database_app.tabelas.Pergunta;
+import martins.eduardo.uno.morintegracaocomjava.database_app.tabelas.Prova;
+import martins.eduardo.uno.morintegracaocomjava.database_app.tabelas.Resposta;
+
+@Database(entities = {Aluno.class, Prova.class
+        , AlunoProva.class, Pergunta.class
+        , Resposta.class}
+        , exportSchema = false
+        , version = 1)
 
 @TypeConverters({Converters.class})
-
 public abstract class DatabaseApp extends RoomDatabase {
 
     private static final String DB_NAME = "db_app.db";

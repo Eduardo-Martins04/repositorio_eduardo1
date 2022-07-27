@@ -22,7 +22,7 @@ public interface ICRUDRespostaDAO {
     void insertResposta(Resposta resposta);
 
     @Query("SELECT * FROM tbl_resposta WHERE id = :id")
-    void getEspecificAlunoById(int id);
+    Resposta getEspecificAlunoById(int id);
 
     @Query("SELECT * FROM tbl_resposta")
     List<Resposta> getAllRespostas();

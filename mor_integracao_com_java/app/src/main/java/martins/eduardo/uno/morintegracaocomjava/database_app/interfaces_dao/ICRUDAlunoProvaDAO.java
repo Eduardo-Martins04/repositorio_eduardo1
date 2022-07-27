@@ -21,7 +21,7 @@ public interface ICRUDAlunoProvaDAO {
     void insertAlunoProva(AlunoProva alunoProva);
 
     @Query("SELECT * FROM tbl_alunoprova where aluno_id = :id")
-    Aluno getEspecificAlunoProvaById(int id);
+    AlunoProva getEspecificAlunoProvaById(int id);
 
     @Query("SELECT * FROM tbl_alunoprova ORDER BY aluno_id DESC")
     List<AlunoProva> getAllAlunosProvas();

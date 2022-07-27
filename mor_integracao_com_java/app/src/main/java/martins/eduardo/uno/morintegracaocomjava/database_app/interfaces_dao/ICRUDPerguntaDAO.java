@@ -20,7 +20,7 @@ public interface ICRUDPerguntaDAO {
     void insertPergunta(Pergunta pergunta);
 
     @Query("SELECT * FROM tbl_pergunta WHERE id = :id")
-    void getEspecificPerguntaById(int id);
+    Pergunta getEspecificPerguntaById(int id);
 
     @Query("SELECT * FROM tbl_pergunta")
     List<Pergunta> getAllPerguntas();

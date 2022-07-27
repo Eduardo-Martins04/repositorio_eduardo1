@@ -1,7 +1,6 @@
 package martins.eduardo.uno.morintegracaocomjava.ui;
 
 
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 

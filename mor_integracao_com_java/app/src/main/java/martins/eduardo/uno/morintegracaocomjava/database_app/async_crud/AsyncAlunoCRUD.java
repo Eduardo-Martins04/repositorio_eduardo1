@@ -78,9 +78,11 @@ public class AsyncAlunoCRUD extends AsyncTask<Aluno, Integer, List<Aluno>> {
 
         if(dbOperations == UtilsApp.DataBaseCrudOperations.CREATE
                 || dbOperations == UtilsApp.DataBaseCrudOperations.READ) {
-            IAlunoDbCallback callBack = dbCallBack.get();
-            if (callBack != null) {
+
+            if(dbCallBack != null){
+                IAlunoDbCallback callBack = dbCallBack.get();
                 callBack.getAlunoFromDB(alunos);
+
             }
         }
     }
